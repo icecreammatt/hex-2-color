@@ -14,6 +14,14 @@ use std::process;
 // let g = "56";
 // let b = "6A";
 
+fn validate_is_hex(value: &String) {
+    let is_valid = i64::from_str_radix(value, 16).is_ok();
+    if !is_valid {
+        println!("Invalid hex code");
+        process::exit(1);
+    }
+}
+
 fn main() {
     let args: Vec<String> = env::args().collect();
 
@@ -27,7 +35,6 @@ fn main() {
 
     /* TODO
     - Add length check 6 even for hex
-    - Add range check for 0-9A-F
     */
 
     let valid_arg_len = [2usize, 4usize];
@@ -39,6 +46,8 @@ fn main() {
 
     if args.len() == 2 {
         let hex_value = &args[1].to_uppercase();
+        validate_is_hex(&hex_value);
+
         r = String::from(&hex_value[0..2]);
         g = String::from(&hex_value[2..4]);
         b = String::from(&hex_value[4..6]);
