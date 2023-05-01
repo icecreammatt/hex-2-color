@@ -70,6 +70,10 @@ fn main() {
         red = (&args[1]).parse::<u8>().unwrap();
         green = (&args[2]).parse::<u8>().unwrap();
         blue = (&args[3]).parse::<u8>().unwrap();
+
+        r = format!("{:02x}", red).to_uppercase();
+        g = format!("{:02x}", green).to_uppercase();
+        b = format!("{:02x}", blue).to_uppercase();
     }
 
     println!(
