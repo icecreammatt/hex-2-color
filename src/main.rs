@@ -59,6 +59,14 @@ fn main() {
     }
 
     if args.len() == 4 {
+        for val in args.iter().skip(1) {
+            let is_valid = &val.parse::<u8>().is_ok();
+            if !is_valid {
+                println!("Values must be from 0-255");
+                process::exit(1);
+            }
+        }
+
         red = (&args[1]).parse::<u8>().unwrap();
         green = (&args[2]).parse::<u8>().unwrap();
         blue = (&args[3]).parse::<u8>().unwrap();
