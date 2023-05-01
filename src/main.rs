@@ -14,7 +14,12 @@ use std::process;
 // let g = "56";
 // let b = "6A";
 
-fn validate_is_hex(value: &String) {
+fn validate_hex_input(value: &String) {
+    if value.len() != 6 {
+        println!("Hex value must contain 6 characters");
+        process::exit(1);
+    }
+
     let is_valid = i64::from_str_radix(value, 16).is_ok();
     if !is_valid {
         println!("Invalid hex code");
@@ -33,10 +38,6 @@ fn main() {
     let mut green = 0;
     let mut blue = 0;
 
-    /* TODO
-    - Add length check 6 even for hex
-    */
-
     let valid_arg_len = [2usize, 4usize];
 
     if !valid_arg_len.contains(&args.len()) {
@@ -46,7 +47,7 @@ fn main() {
 
     if args.len() == 2 {
         let hex_value = &args[1].to_uppercase();
-        validate_is_hex(&hex_value);
+        validate_hex_input(&hex_value);
 
         r = String::from(&hex_value[0..2]);
         g = String::from(&hex_value[2..4]);
