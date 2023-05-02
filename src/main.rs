@@ -41,7 +41,7 @@ fn main() {
     let valid_arg_len = [2usize, 4usize];
 
     if !valid_arg_len.contains(&args.len()) {
-        println!("Usage: hex-2-color <FFFFFF or (0-255) (0-255) (0-255)>");
+        println!("Usage: hex2color <FFFFFF or (0-255) (0-255) (0-255)>");
         process::exit(1);
     }
 

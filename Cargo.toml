@@ -1,5 +1,5 @@
 [package]
-name = "hex-2-color"
+name = "hex2color"
 version = "0.1.0"
 edition = "2021"
 
