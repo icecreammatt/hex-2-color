@@ -12,6 +12,7 @@
         naersk-lib = pkgs.callPackage naersk { };
       in
       {
+        hydraJobs."tester" = self.defaultPackage;
         defaultPackage = naersk-lib.buildPackage ./.;
         devShell = with pkgs; mkShell {
           buildInputs = [ cargo rustc rustfmt pre-commit rustPackages.clippy ];
